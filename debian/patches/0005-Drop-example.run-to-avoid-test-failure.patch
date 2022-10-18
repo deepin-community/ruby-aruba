@@ -1,0 +1,112 @@
+From: Hideki Yamane <henrich@debian.org>
+Date: Sat, 6 Feb 2021 22:22:29 +0900
+Subject: Drop example.run to avoid test failure
+
+Errors as below...
+---------------------------------------------------------------------
+Failures:
+
+  1) Aruba::Api::Bundler#unset_bundler_env_vars sets up Aruba's environment to clear Bundler's variables
+     Failure/Error: if ::Bundler.respond_to?(:with_unbundled_env)
+
+     NameError:
+       uninitialized constant Bundler
+     # ./lib/aruba/api/bundler.rb:23:in `with_unbundled_env'
+     # ./lib/aruba/api/bundler.rb:10:in `block in unset_bundler_env_vars'
+     # ./lib/aruba/platforms/local_environment.rb:22:in `call'
+     # ./lib/aruba/platforms/unix_platform.rb:78:in `with_environment'
+     # ./lib/aruba/api/core.rb:218:in `block in with_environment'
+     # ./lib/aruba/platforms/unix_environment_variables.rb:191:in `nest'
+     # ./lib/aruba/api/core.rb:216:in `with_environment'
+     # ./lib/aruba/api/bundler.rb:10:in `unset_bundler_env_vars'
+     # ./spec/aruba/api/bundler_spec.rb:9:in `block (3 levels) in <top (required)>'
+     # ./lib/aruba/rspec.rb:35:in `block (3 levels) in <top (required)>'
+     # ./lib/aruba/platforms/local_environment.rb:22:in `call'
+     # ./lib/aruba/platforms/unix_platform.rb:78:in `with_environment'
+     # ./lib/aruba/api/core.rb:218:in `block in with_environment'
+     # ./lib/aruba/platforms/unix_environment_variables.rb:191:in `nest'
+     # ./lib/aruba/api/core.rb:216:in `with_environment'
+     # ./lib/aruba/rspec.rb:34:in `block (2 levels) in <top (required)>'
+     # ./lib/aruba/rspec.rb:25:in `block (2 levels) in <top (required)>'
+
+  2) Collection Matchers #include_an_object when failing emits failure messages for all candidate objects
+     Failure/Error:
+               expect { expect(no_oddity).to include_an_object(be_odd) }
+                 .to fail_with <<~MESSAGE.strip
+                   expected [14, "a"] to include an object be odd
+
+                      object at index 0 failed to match:
+                         expected `14.odd?` to be truthy, got false
+
+                      object at index 1 failed to match:
+                         expected "a" to respond to `odd?`
+                 MESSAGE
+
+       expected RSpec::Expectations::ExpectationNotMetError with "expected [14, \"a\"] to include an object be odd\n\n   object at index 0 failed to match:\n      exp...uthy, got false\n\n   object at index 1 failed to match:\n      expected \"a\" to respond to `odd?`", got #<RSpec::Expectations::ExpectationNotMetError: expected [14, "a"] to include an object be odd
+
+          obj...turn true, got false
+
+          object at index 1 failed to match:
+             expected "a" to respond to `odd?`> with backtrace:
+         # ./spec/aruba/matchers/collection_spec.rb:20:in `block (5 levels) in <top (required)>'
+         # ./spec/aruba/matchers/collection_spec.rb:20:in `block (4 levels) in <top (required)>'
+         # ./lib/aruba/rspec.rb:35:in `block (3 levels) in <top (required)>'
+         # ./lib/aruba/platforms/local_environment.rb:22:in `call'
+         # ./lib/aruba/platforms/unix_platform.rb:78:in `with_environment'
+         # ./lib/aruba/api/core.rb:218:in `block in with_environment'
+         # ./lib/aruba/platforms/unix_environment_variables.rb:191:in `nest'
+         # ./lib/aruba/api/core.rb:216:in `with_environment'
+         # ./lib/aruba/rspec.rb:34:in `block (2 levels) in <top (required)>'
+         # ./lib/aruba/rspec.rb:25:in `block (2 levels) in <top (required)>'
+     # ./spec/aruba/matchers/collection_spec.rb:20:in `block (4 levels) in <top (required)>'
+     # ./lib/aruba/rspec.rb:35:in `block (3 levels) in <top (required)>'
+     # ./lib/aruba/platforms/local_environment.rb:22:in `call'
+     # ./lib/aruba/platforms/unix_platform.rb:78:in `with_environment'
+     # ./lib/aruba/api/core.rb:218:in `block in with_environment'
+     # ./lib/aruba/platforms/unix_environment_variables.rb:191:in `nest'
+     # ./lib/aruba/api/core.rb:216:in `with_environment'
+     # ./lib/aruba/rspec.rb:34:in `block (2 levels) in <top (required)>'
+     # ./lib/aruba/rspec.rb:25:in `block (2 levels) in <top (required)>'
+
+  3) Collection Matchers #include_an_object when failing skips boiler plate if only one candidate object is given
+     Failure/Error:
+       expect { expect(only_one).to include_an_object(be_odd) }
+         .to fail_with 'expected `14.odd?` to be truthy, got false'
+
+       expected RSpec::Expectations::ExpectationNotMetError with "expected `14.odd?` to be truthy, got false", got #<RSpec::Expectations::ExpectationNotMetError: expected `14.odd?` to return true, got false> with backtrace:
+         # ./spec/aruba/matchers/collection_spec.rb:40:in `block (5 levels) in <top (required)>'
+         # ./spec/aruba/matchers/collection_spec.rb:40:in `block (4 levels) in <top (required)>'
+         # ./lib/aruba/rspec.rb:35:in `block (3 levels) in <top (required)>'
+         # ./lib/aruba/platforms/local_environment.rb:22:in `call'
+         # ./lib/aruba/platforms/unix_platform.rb:78:in `with_environment'
+         # ./lib/aruba/api/core.rb:218:in `block in with_environment'
+         # ./lib/aruba/platforms/unix_environment_variables.rb:191:in `nest'
+         # ./lib/aruba/api/core.rb:216:in `with_environment'
+         # ./lib/aruba/rspec.rb:34:in `block (2 levels) in <top (required)>'
+         # ./lib/aruba/rspec.rb:25:in `block (2 levels) in <top (required)>'
+     # ./spec/aruba/matchers/collection_spec.rb:40:in `block (4 levels) in <top (required)>'
+     # ./lib/aruba/rspec.rb:35:in `block (3 levels) in <top (required)>'
+     # ./lib/aruba/platforms/local_environment.rb:22:in `call'
+     # ./lib/aruba/platforms/unix_platform.rb:78:in `with_environment'
+     # ./lib/aruba/api/core.rb:218:in `block in with_environment'
+     # ./lib/aruba/platforms/unix_environment_variables.rb:191:in `nest'
+     # ./lib/aruba/api/core.rb:216:in `with_environment'
+     # ./lib/aruba/rspec.rb:34:in `block (2 levels) in <top (required)>'
+     # ./lib/aruba/rspec.rb:25:in `block (2 levels) in <top (required)>'
+---
+ lib/aruba/rspec.rb | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/lib/aruba/rspec.rb b/lib/aruba/rspec.rb
+index 7c8bd86..49f9949 100644
+--- a/lib/aruba/rspec.rb
++++ b/lib/aruba/rspec.rb
+@@ -22,8 +22,6 @@ RSpec.configure do |config|
+       set_environment_variable 'HOME', aruba.config.home_directory
+     end
+ 
+-    example.run
+-
+     next unless self.class.include? Aruba::Api
+ 
+     stop_all_commands

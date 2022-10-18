@@ -1,0 +1,62 @@
+---
+- - :approve
+  - win32console
+  - :who: 
+    :why: 
+    :when: 2016-05-09 14:57:58.000000000 Z
+- - :permit
+  - MIT
+  - :who: 
+    :why: 
+    :when: 2015-04-28 13:38:19.583103100 Z
+- - :ignore_group
+  - development
+  - :who: 
+    :why: 
+    :when: 2015-04-28 13:39:28.340867782 Z
+- - :permit
+  - BSD
+  - :who: 
+    :why: 
+    :when: 2015-04-28 13:39:40.984464786 Z
+- - :ignore_group
+  - development
+  - :who: 
+    :why: 
+    :when: 2016-04-19 21:35:58.945568982 Z
+- - :ignore_group
+  - test
+  - :who: 
+    :why: 
+    :when: 2016-04-19 21:36:02.006089986 Z
+- - :approve
+  - contracts
+  - :who: 
+    :why: 
+    :when: 2016-04-19 21:38:58.571635580 Z
+- - :permit
+  - ruby
+  - :who: 
+    :why: 
+    :when: 2016-04-19 21:40:01.747535503 Z
+- - :permit
+  - New BSD
+  - :who: 
+    :why: 
+    :when: 2016-12-07 14:54:49.587491547 Z
+- - :permit
+  - Simplified BSD
+  - :who: 
+    :why: 
+    :when: 2017-06-30 06:37:18.031292275 Z
+- - :ignore_group
+  - debug
+  - :who: 
+    :why: 
+    :when: 2017-06-09 14:29:19.742116140 Z
+- - :permit
+  - Apache 2.0
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2020-06-05 12:05:46.881507110 Z

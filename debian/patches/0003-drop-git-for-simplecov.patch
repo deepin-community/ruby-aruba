@@ -1,0 +1,28 @@
+From: Hideki Yamane <henrich@debian.org>
+Date: Sun, 15 Sep 2019 22:09:52 +0900
+Subject: drop git for simplecov
+
+---
+ .simplecov | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
+
+diff --git a/.simplecov b/.simplecov
+index 61e6353..778d9d0 100644
+--- a/.simplecov
++++ b/.simplecov
+@@ -10,14 +10,7 @@ SimpleCov.configure do
+   add_filter 'Rakefile'
+   add_filter 'lib/tasks'
+ 
+-  #
+-  # Changed Files in Git Group
+-  # @see http://fredwu.me/post/35625566267/simplecov-test-coverage-for-changed-files-only
+-  untracked         = `git ls-files --exclude-standard --others`
+-  unstaged          = `git diff --name-only`
+-  staged            = `git diff --name-only --cached`
+-  all               = untracked + unstaged + staged
+-  changed_filenames = all.split("\n")
++  changed_filenames = Dir['**/*'].reject { |f| f =~ %r{^debian/} }
+ 
+   add_group 'Changed' do |source_file|
+     changed_filenames.select do |changed_filename|

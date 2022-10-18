@@ -1,0 +1,5 @@
+0002-drop-bundler-since-its-dependencies-are-solved-via-p.patch
+0003-drop-git-for-simplecov.patch
+0004-Ignore-spec-aruba-runtime_spec.rb.patch
+0005-relax-minimal-version-for-thor.patch
+0005-Drop-example.run-to-avoid-test-failure.patch

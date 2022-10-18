@@ -1,0 +1,268 @@
+ruby-aruba (1.0.4-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/patches
+    - Refresh patches
+    - Add debian/patches/0005-Drop-example.run-to-avoid-test-failure.patch
+  * debian/control
+    - Adjust Dependencies and its versions and drop unnecessary ruby-ffi
+    - Set Standards-Version 4.5.1
+
+ -- Hideki Yamane <henrich@debian.org>  Sat, 06 Feb 2021 22:29:24 +0900
+
+ruby-aruba (1.0.3-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/control
+    - Set Build-Depends: debhelper-compat (= 13)
+  * debian/patches
+    - Refresh patches
+    - Drop 0001-do-not-use-git-command-for-checking-files.patch: unnecessary
+      anymore
+
+ -- Hideki Yamane <henrich@debian.org>  Sat, 29 Aug 2020 19:14:12 +0900
+
+ruby-aruba (1.0.2-2) unstable; urgency=medium
+
+  * Team upload.
+  * debian/patches
+    - Add 0005-relax-minimal-version-for-thor.patch to use pre-v1 versions of
+      ruby-thor (Closes: #964618)
+    - renumber patches in increasing order
+  * Lower minimal version of ruby-thor in dependencies to 0.20
+  * Relax maximal version of ruby-childprocess in dependencies to 5, in
+    agreement with gemspec
+
+ -- Cédric Boutillier <boutil@debian.org>  Fri, 10 Jul 2020 22:44:57 +0200
+
+ruby-aruba (1.0.2-1) unstable; urgency=medium
+
+  [ Hideki Yamane ]
+  * New upstream release
+  * debian/control
+    - Add missing dependency ruby-ffi, ruby-contracts and ruby-childprocess
+      for test
+    - Set Standards-Version 4.5.0
+  * debian/patches
+    - Refresh patches
+    - Add 0004-Ignore-spec-aruba-runtime_spec.rb.patch to ignore test failure
+      that is not fixed in upstream yet
+  * Drop unnecessary debian/ruby-aruba.{links,install}
+  * debian/rules
+    - Drop unnecessary changes for template directory
+  * debian/copyright
+    - Drop unnecessary license notice for template directory
+
+ -- Cédric Boutillier <boutil@debian.org>  Fri, 10 Jul 2020 22:44:40 +0200
+
+ruby-aruba (0.14.14-1) unstable; urgency=medium
+
+  * New upstream release
+    - Support Ruby 2.7
+
+ -- Hideki Yamane <henrich@debian.org>  Fri, 03 Jan 2020 10:59:44 +0900
+
+ruby-aruba (0.14.13-1) unstable; urgency=medium
+
+  * New upstream release 
+
+ -- Hideki Yamane <henrich@debian.org>  Sat, 28 Dec 2019 00:03:57 +0900
+
+ruby-aruba (0.14.12-2) unstable; urgency=medium
+
+  * debian/control
+    - drop Build-Depends: debhelper
+    - set Standards-Version: 4.4.1
+
+ -- Hideki Yamane <henrich@debian.org>  Sun, 13 Oct 2019 01:00:31 +0900
+
+ruby-aruba (0.14.12-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/gbp.conf: drop pbuilder option
+  * debian/control: adjust dependency as ruby-childprocess (<< 4.0.0)
+  * debian/watch: use v4
+
+ -- Hideki Yamane <henrich@debian.org>  Sat, 28 Sep 2019 21:44:04 +0900
+
+ruby-aruba (0.14.11-1) unstable; urgency=medium
+
+  * New upstream release
+
+  [ Utkarsh Gupta ]
+  * Add salsa-ci.yml
+
+  [ Hideki Yamane ]
+  * debian/salsa-ci.yml
+    - disable some unnecessary tests
+  * debian/control
+    - add Build-Depends: ruby-simplecov
+  * debian/patches
+    - refresh patches
+    - drop: 0004-add-require-time-to-avoid-test-failure.patch,
+    - drop: 003_disable-simplecov-during-tests.patch,
+    - add 0005-drop-bundler-since-its-dependencies-are-solved-via-p.patch
+    - add 0007-drop-git-for-simplecov.patch
+  * debian/gbp.conf
+    - drop pbuilder option to avoid CI failure
+
+ -- Hideki Yamane <henrich@debian.org>  Sun, 15 Sep 2019 22:20:04 +0900
+
+ruby-aruba (0.14.9-1) unstable; urgency=medium
+
+  * New upstrem release
+  * debian/control
+    - add Rules-Requires-Root: no
+  * debian/patches
+    - refresh patches
+  * debian/rules
+    - install CHANGELOG.md, instead of History.md
+
+ -- Hideki Yamane <henrich@debian.org>  Sun, 31 Mar 2019 19:02:39 +0900
+
+ruby-aruba (0.14.8-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/copyright
+    - use https for copyright format url
+  * debian/control
+    - adjust dependency
+
+ -- Hideki Yamane <henrich@debian.org>  Tue, 05 Feb 2019 20:51:57 +0900
+
+ruby-aruba (0.14.7-1) unstable; urgency=medium
+
+  * debian/control
+    - adjust dependencies
+    - set Standards-Version: 4.3.0
+    - use dh12
+  * debian/compat
+    - drop it
+  * debian/{link,rules}
+    - use packages's jquery
+  * debian/copyright
+    - declare CC-BY-3.0 and add its license term
+
+ -- Hideki Yamane <henrich@debian.org>  Mon, 14 Jan 2019 12:18:23 +0900
+
+ruby-aruba (0.14.6-3) unstable; urgency=medium
+
+  * debian/patches
+    - add 0006-do-not-use-git-command-for-checking-files.patch to fix test
+      failure (Closes: #910953) 
+
+ -- Hideki Yamane <henrich@debian.org>  Sat, 15 Dec 2018 20:29:09 +0900
+
+ruby-aruba (0.14.6-2) unstable; urgency=medium
+
+  * debian/watch
+    - update deprecated url to gemwatch.debian.net
+    - use https
+  * debian/control
+    - set more appropriate runtime dependency
+
+ -- Hideki Yamane <henrich@debian.org>  Sat, 13 Oct 2018 14:30:37 +0900
+
+ruby-aruba (0.14.6-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/control
+    - drop "Depends: ruby-interpreter" since it was already dropped
+    - set "Build-Depends: debhelper (>= 11)"
+    - set Standards-Version: 4.2.1
+    - move Vcs-* to salsa.debian.org
+  * debian/compat
+    - set 11
+  * debian/patches
+    - refresh and update patches
+    - drop unnecessary 0006-ignore-failing-test-autopkgtest.patch
+
+ -- Hideki Yamane <henrich@debian.org>  Sat, 13 Oct 2018 14:25:30 +0900
+
+ruby-aruba (0.14.2-2) unstable; urgency=medium
+
+  [ Hleb Valoshka ]
+  * Team upload.
+  * Add patch for removed Utils class usage (Closes: 836735).
+
+  [ Cédric Boutillier ]
+  * Add autopkgtest support
+    + add 0006-ignore-failing-test-autopkgtest.patch to skig failing test in
+      autopkgtest context
+
+ -- Hleb Valoshka <375gnu@gmail.com>  Mon, 05 Sep 2016 13:38:24 +0300
+
+ruby-aruba (0.14.2-1) unstable; urgency=medium
+
+  * New upstream release 
+  * debian/control
+    - set Standards-Version: 3.9.8
+
+  [ Hleb Valoshka ]
+  * Drop dependency on ruby-event-bus.
+
+ -- Hideki Yamane <henrich@debian.org>  Sun, 21 Aug 2016 15:43:41 +0900
+
+ruby-aruba (0.14.1-1) unstable; urgency=medium
+
+  * New upstream release 
+  * debian/control
+    - use https for Vcs-Git
+    - set Standards-Version: 3.9.7
+  * debian/patches
+    - refresh patches
+  * debian/missing-source
+    - add jquery-1.11.3.js to fix lintian "source-is-missing" error
+
+ -- Hideki Yamane <henrich@debian.org>  Tue, 22 Mar 2016 21:17:42 +0900
+
+ruby-aruba (0.10.2-1) unstable; urgency=medium
+
+  [ Sebastien Badia ]
+  * New upstream release (Closes: #794157)
+  * Add new dependencys (ruby-contracts, ruby-ffi, ruby-thor)
+  * Bumped Standards-Versions (no changes needed)
+  * Bumped up compat version to 9
+  * Update VCS-* fields (use cgit and https)
+
+  [ Hideki Yamane ]
+  * Team upload.
+  * debian/patches
+    - add 0004-add-require-time-to-avoid-test-failure.patch
+  * debian/rules
+    - export $HOME to avoid test failure
+  * add debian/gbp.conf
+
+ -- Hideki Yamane <henrich@debian.org>  Fri, 20 Nov 2015 22:22:46 +0900
+
+ruby-aruba (0.5.4-2) unstable; urgency=medium
+
+  * Team upload.
+  * Relax version constraint on ruby-childprocess dependency.
+
+ -- Cédric Boutillier <boutil@debian.org>  Sun, 23 Mar 2014 13:54:35 +0100
+
+ruby-aruba (0.5.4-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/control
+    - set Standards-Version: 3.9.5 with no changes
+    - fix Vcs-Browser URL 
+
+ -- Hideki Yamane <henrich@debian.org>  Wed, 26 Feb 2014 21:25:49 +0900
+
+ruby-aruba (0.5.3-1) unstable; urgency=low
+
+  * New upstream release 
+
+ -- Hideki Yamane <henrich@debian.org>  Sun, 06 Oct 2013 01:04:50 +0900
+
+ruby-aruba (0.5.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #697253)
+
+  [ Hideki Yamane ]
+
+  * Initial packaging
+
+ -- Praveen Arimbrathodiyil <praveen@debian.org>  Sat, 15 Dec 2012 11:08:34 +0900

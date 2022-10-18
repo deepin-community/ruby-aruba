@@ -1,0 +1,38 @@
+From: Hideki Yamane <henrich@debian.org>
+Date: Sun, 15 Sep 2019 21:50:20 +0900
+Subject: drop bundler since its dependencies are solved via package manager
+
+---
+ Rakefile            | 3 ---
+ spec/spec_helper.rb | 4 ----
+ 2 files changed, 7 deletions(-)
+
+diff --git a/Rakefile b/Rakefile
+index 548e22c..0c6a08f 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -3,9 +3,6 @@ $LOAD_PATH << File.expand_path(__dir__)
+ require 'aruba/tasks/docker_helpers'
+ require 'aruba/platform'
+ 
+-require 'bundler'
+-Bundler.setup
+-
+ require 'cucumber/rake/task'
+ require 'rspec/core/rake_task'
+ 
+diff --git a/spec/spec_helper.rb b/spec/spec_helper.rb
+index a7f94e2..783bbbe 100644
+--- a/spec/spec_helper.rb
++++ b/spec/spec_helper.rb
+@@ -6,10 +6,6 @@ unless RUBY_PLATFORM.include?('java')
+   SimpleCov.start
+ end
+ 
+-# Pull in all of the gems including those in the `test` group
+-require 'bundler'
+-Bundler.require
+-
+ # Loading support files
+ Dir.glob(::File.expand_path('support/*.rb', __dir__)).each { |f| require_relative f }
+ Dir.glob(::File.expand_path('support/**/*.rb', __dir__)).each { |f| require_relative f }
